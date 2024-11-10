@@ -1,4 +1,5 @@
 package tn.esprit.tpfoyer.Service;
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entity.Chambre;
@@ -9,8 +10,9 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
+@AllArgsConstructor
 public class ChambreService implements ChambreServiceI {
-    @Autowired
+
     private ChambreRepository chambreRepository;
 
     @Override
@@ -33,8 +35,7 @@ public class ChambreService implements ChambreServiceI {
 
     @Override
     public Chambre getChambreById(Long idChambre) {
-        Optional<Chambre> chambre = chambreRepository.findById(idChambre);
-        return chambre.orElseThrow(() -> new RuntimeException("Chambre not found"));
+        return chambreRepository.findById(idChambre).get();
     }
 
     @Override

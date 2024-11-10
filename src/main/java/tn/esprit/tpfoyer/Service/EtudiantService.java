@@ -1,5 +1,6 @@
 package tn.esprit.tpfoyer.Service;
 
+import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.entity.Etudiant;
@@ -10,10 +11,10 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-
+@AllArgsConstructor
 
 public class EtudiantService implements EtudiantServiceI {
-    @Autowired
+
     private EtudiantRepository etudiantRepository;
 
     @Override

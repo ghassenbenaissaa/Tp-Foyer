@@ -28,4 +28,7 @@ public interface ChambreRepository extends JpaRepository<Chambre, Long> {
     @Modifying
     @Query(value = "UPDATE Chambre SET numero_chambre = ?1, type_c = ?2, bloc_id = ?3 WHERE id_chambre = ?4", nativeQuery = true)
     void updateChambreNative(Long numeroChambre, String typeC, Long blocId, Long idChambre);
+
+    @Query("SELECT DISTINCT ch FROM Chambre ch JOIN ch.reservations r JOIN r.etudiants e WHERE e.cin = :cin")
+    Chambre trouverChselonEt(@Param("cin") Long cin);
 }

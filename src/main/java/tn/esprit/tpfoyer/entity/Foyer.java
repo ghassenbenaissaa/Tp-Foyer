@@ -1,4 +1,5 @@
 package tn.esprit.tpfoyer.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -22,8 +23,9 @@ public class Foyer {
 
     @OneToOne(mappedBy = "foyer")
     private Universite universite;
-    @OneToMany(mappedBy = "foyer")
-    private List<Bloc> bloc;
 
+
+    @OneToMany(mappedBy = "foyer", orphanRemoval = true)
+    private List<Bloc> blocs = new ArrayList<>();
 
 }

@@ -28,7 +28,7 @@ public class Etudiant {
     private Date dateNaissance;
 
 
-    @ManyToMany (mappedBy = "etudiants")
+    @ManyToMany (mappedBy = "etudiants",cascade = CascadeType.ALL)
     private List<Reservation> reservations;
 
 }

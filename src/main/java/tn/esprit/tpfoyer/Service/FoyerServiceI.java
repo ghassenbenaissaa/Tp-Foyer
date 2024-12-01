@@ -1,5 +1,6 @@
 package tn.esprit.tpfoyer.Service;
 
+import org.springframework.web.bind.annotation.PathVariable;
 import tn.esprit.tpfoyer.entity.Foyer;
 
 import java.util.List;

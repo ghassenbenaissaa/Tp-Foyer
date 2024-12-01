@@ -1,7 +1,12 @@
 package tn.esprit.tpfoyer.Service;
+import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PutMapping;
+import tn.esprit.tpfoyer.Repository.BlocRepository;
+import tn.esprit.tpfoyer.entity.Bloc;
 import tn.esprit.tpfoyer.entity.Foyer;
 import tn.esprit.tpfoyer.Repository.FoyerRepository;
 import tn.esprit.tpfoyer.Service.FoyerService;
@@ -14,6 +19,7 @@ import java.util.Optional;
 public class FoyerService implements FoyerServiceI {
 
     private FoyerRepository foyerRepository;
+    private BlocRepository blocRepository;
 
     @Override
     public Foyer addFoyer(Foyer foyer) {

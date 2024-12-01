@@ -20,8 +20,11 @@ public class Bloc {
 
     private Long capaciteBloc;
 
-    @ManyToOne
-    private Foyer foyer;
     @OneToMany(mappedBy = "bloc")
     private List<Chambre> chambres;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "foyer_id_foyer")
+    private Foyer foyer;
+
 }

@@ -48,8 +48,8 @@ public class ChambreRestController {
         return chambre;
     }
     @Operation(description = "modifier une chambre")
-    @PutMapping("/trouver-chambre-selon-etudiant/{cin}")
+    @GetMapping("/trouver-chambre-selon-etudiant/{cin}")
     public Chambre findChambreByEtudiantCin(long cin) {
-        return chambreRepository.trouverChselonEt(cin);
+        return chambreService.getChambreByCin(cin);
     }
 }

@@ -42,4 +42,9 @@ public class ChambreService implements ChambreServiceI {
     public List<Chambre> getAllChambres() {
         return chambreRepository.findAll();
     }
+
+    @Override
+    public Chambre getChambreByCin(Long Cin) {
+        return chambreRepository.trouverChselonEt(Cin);
+    }
 }

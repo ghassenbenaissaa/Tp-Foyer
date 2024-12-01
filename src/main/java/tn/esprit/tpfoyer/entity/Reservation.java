@@ -21,9 +21,9 @@ public class Reservation {
 
     private boolean estValide;
 
+    @ManyToMany(cascade = CascadeType.ALL)
     @ToString.Exclude
     @JsonIgnore
-    @ManyToMany(cascade = CascadeType.ALL)
     private List<Etudiant> etudiants;
 
 }

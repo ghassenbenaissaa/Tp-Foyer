@@ -10,4 +10,5 @@ public interface ChambreServiceI {
     void deleteChambre(Long idChambre);
     Chambre getChambreById(Long idChambre);
     List<Chambre> getAllChambres();
+    Chambre getChambreByCin(Long Cin);
 }

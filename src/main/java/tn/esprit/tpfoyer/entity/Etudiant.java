@@ -1,4 +1,5 @@
 package tn.esprit.tpfoyer.entity;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -29,6 +30,8 @@ public class Etudiant {
 
 
     @ManyToMany (mappedBy = "etudiants",cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @JsonIgnore
     private List<Reservation> reservations;
 
 }

@@ -22,11 +22,13 @@ public class Chambre {
 
     @Enumerated(EnumType.STRING)
     private TypeChambre typeC;
+
+    @OneToMany(cascade = CascadeType.ALL)
+    @ToString.Exclude
+    @JsonIgnore
+    private List<Reservation> reservations;
+
     @ManyToOne
     private Bloc bloc;
 
-    @ToString.Exclude
-    @JsonIgnore
-    @OneToMany(cascade = CascadeType.ALL)
-    private List<Reservation> reservations;
 }

@@ -10,4 +10,5 @@ public interface ReservationServiceI {
     void deleteReservation(String idReservation);
     Reservation getReservationById(String idReservation);
     List<Reservation> getAllReservations();
+    void mettreAJourEtAfficherReservations();
 }

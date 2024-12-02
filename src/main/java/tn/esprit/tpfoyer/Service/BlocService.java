@@ -1,7 +1,9 @@
 package tn.esprit.tpfoyer.Service;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 import tn.esprit.tpfoyer.Repository.FoyerRepository;
 import tn.esprit.tpfoyer.entity.Bloc;
@@ -13,6 +15,7 @@ import java.util.List;
 import java.util.Optional;
 @Service
 @AllArgsConstructor
+@Slf4j
 public class BlocService implements BlocServiceI{
 
     private BlocRepository blocRepository;
@@ -43,8 +46,16 @@ public class BlocService implements BlocServiceI{
     }
 
     @Override
-    public List<Bloc> getAllBlocs() {
+    @Scheduled(fixedRate = 60000)
+    /*public List<Bloc> getAllBlocs() {
         return blocRepository.findAll();
+    }*/
+    public List<Bloc> getAllBlocs() {
+        List<Bloc> listB = blocRepository.findAll();
+        for (Bloc b: listB) {
+            log.info("Bloc :" + b);
+        }
+        return listB;
     }
     @Override
     public Bloc addBlocAndFoyerlAndAssign(Bloc bloc){
@@ -64,7 +75,9 @@ public class BlocService implements BlocServiceI{
         blocRepository.save(Bloc);
     }
     @Override
+    //@Scheduled(fixedRate = 120000)
     public List<Bloc> getAllBlocsFoyerIsNull() {
-        return blocRepository.findAllByFoyerIsNull();
+        System.out.println("Method with fixed Rate");
+        return blocRepository.findByFoyerIsNull();
     }
 }

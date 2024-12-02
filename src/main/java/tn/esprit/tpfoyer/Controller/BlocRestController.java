@@ -3,6 +3,7 @@ package tn.esprit.tpfoyer.Controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import lombok.AllArgsConstructor;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.web.bind.annotation.*;
 import tn.esprit.tpfoyer.Repository.BlocRepository;
 import tn.esprit.tpfoyer.Service.BlocServiceI;

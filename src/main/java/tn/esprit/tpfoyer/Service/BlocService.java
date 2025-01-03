@@ -46,7 +46,7 @@ public class BlocService implements BlocServiceI{
     }
 
     @Override
-    @Scheduled(fixedRate = 60000)
+    //@Scheduled(fixedRate = 60000)
     /*public List<Bloc> getAllBlocs() {
         return blocRepository.findAll();
     }*/
@@ -75,7 +75,7 @@ public class BlocService implements BlocServiceI{
         blocRepository.save(Bloc);
     }
     @Override
-    //@Scheduled(fixedRate = 120000)
+    @Scheduled(fixedRate = 120000)
     public List<Bloc> getAllBlocsFoyerIsNull() {
         System.out.println("Method with fixed Rate");
         return blocRepository.findByFoyerIsNull();
